@@ -3,7 +3,7 @@
 Still to be automated, installing:
 
 - [git-delta](https://github.com/dandavison/delta)
-- [codex](https://developers.openai.com/codex/cli/)
+- [codex](https://developers.openai.com/codex/cli/). Install w/ `npm install -g @openai/codex`.
     - [playwright-mcp](https://github.com/microsoft/playwright-mcp). I found that installing it with `npm install -g @playwright/mcp@latest` works better than starting the MCP with `npx @playwright/mcp@latest` because it takes less time and thus less prone to startup timeouts.
 - [Claude Code](https://www.claude.com/product/claude-code). Install w/ `npm install -g @anthropic-ai/claude-code`.
 - [uv](https://docs.astral.sh/uv/). Install w/ `curl -LsSf https://astral.sh/uv/install.sh | sh`.
