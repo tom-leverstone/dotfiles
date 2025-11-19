@@ -2,10 +2,9 @@
 name = Tom Leverstone
 email = tom.leverstone@vanta.com
 
-# Default config for delta - a syntax-highlighting pager for git, diff, grep, and blame output
-# https://github.com/dandavison/delta
 [core]
     pager = delta
+    excludesFile = ~/.gitignore
 
 [interactive]
     diffFilter = delta --color-only
