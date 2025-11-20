@@ -1,11 +1,7 @@
 # Tom's dotfiles
 
-Still to be automated, installing:
+This repository contains my personal dotfiles and development environment configuration. It's designed to work with GitHub Codespaces and automatically sets up my preferred tools and settings.
 
-- [git-delta](https://github.com/dandavison/delta)
-- [codex](https://developers.openai.com/codex/cli/). Install w/ `npm install -g @openai/codex`.
-    - [playwright-mcp](https://github.com/microsoft/playwright-mcp). I found that installing it with `npm install -g @playwright/mcp@latest` works better than starting the MCP with `npx @playwright/mcp@latest` because it takes less time and thus less prone to startup timeouts.
-- [Claude Code](https://www.claude.com/product/claude-code). Install w/ `npm install -g @anthropic-ai/claude-code`.
-- [uv](https://docs.astral.sh/uv/). Install w/ `curl -LsSf https://astral.sh/uv/install.sh | sh`.
-- [llm](https://llm.datasette.io/en/stable/). Istall w/ `uv tool install llm`.
-    - [llm-anthropic](https://github.com/simonw/llm-anthropic). Install w/ `llm install llm-anthropic`.
+## Usage
+
+Run `./setup.sh` to install all dotfiles and tools.

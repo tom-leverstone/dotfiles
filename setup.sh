@@ -1,0 +1,70 @@
+#!/bin/bash
+
+set -e
+
+# Determine the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Files and directories to exclude from copying
+EXCLUDE_LIST=(
+    ".git"
+    "README.md"
+    "setup.sh"
+)
+
+# Copy dotfiles to home directory
+cd "$SCRIPT_DIR"
+for item in .*; do
+    # Skip . and ..
+    if [ "$item" = "." ] || [ "$item" = ".." ]; then
+        continue
+    fi
+
+    # Check if item is in exclude list
+    skip=false
+    for exclude in "${EXCLUDE_LIST[@]}"; do
+        if [ "$item" = "$exclude" ]; then
+            skip=true
+            break
+        fi
+    done
+
+    if [ "$skip" = false ]; then
+        cp -r "$SCRIPT_DIR/$item" "$HOME/"
+    fi
+done
+
+# Install git-delta
+if ! command -v delta &> /dev/null; then
+    wget https://github.com/dandavison/delta/releases/download/0.18.2/git-delta_0.18.2_amd64.deb
+    sudo dpkg -i git-delta_0.18.2_amd64.deb
+    rm git-delta_0.18.2_amd64.deb
+fi
+
+# Install codex
+if ! command -v codex &> /dev/null; then
+    npm install -g @openai/codex
+fi
+
+# Install playwright-mcp
+if ! npm list -g @playwright/mcp &> /dev/null; then
+    npm install -g @playwright/mcp@latest
+fi
+
+# Install Claude Code
+if ! command -v claude &> /dev/null; then
+    npm install -g @anthropic-ai/claude-code
+fi
+
+# Install uv
+if ! command -v uv &> /dev/null; then
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+fi
+
+# Install llm
+if ! command -v llm &> /dev/null; then
+    uv tool install llm
+fi
+
+# Install llm-anthropic plugin
+llm install llm-anthropic
