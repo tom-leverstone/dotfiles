@@ -68,3 +68,10 @@ fi
 
 # Install llm-anthropic plugin
 llm install llm-anthropic
+
+# Install jj
+if ! command -v jj &> /dev/null; then
+    wget https://github.com/jj-vcs/jj/releases/download/v0.36.0/jj-v0.36.0-x86_64-unknown-linux-musl.tar.gz
+    tar -xvf jj-v0.36.0-x86_64-unknown-linux-musl.tar.gz
+    sudo mv jj /usr/local/bin/
+fi
