@@ -2,3 +2,7 @@
 pager = "delta"
 diff-formatter = ":git"
 default-command = "log"
+
+[user]
+name = "Tom Leverstone"
+email = "tom.leverstone@vanta.com"
