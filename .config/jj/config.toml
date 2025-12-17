@@ -1,3 +1,4 @@
 [ui]
 pager = "delta"
 diff-formatter = ":git"
+default-command = "log"
