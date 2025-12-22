@@ -96,3 +96,7 @@ fi
 # Install starship prompt
 # -s -- -y to pass -y to the script for non-interactive use
 curl -sS https://starship.rs/install.sh | sh -s -- -y
+
+# Install zsh plugins
+sudo apt install zsh-syntax-highlighting
+sudo apt install zsh-autosuggestions
