@@ -45,8 +45,8 @@ fi
 eval "$(starship init zsh)"
 
 # --- PLUGINS ---
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # --- ALIASES ---
 if command -v nvim >/dev/null 2>&1; then
