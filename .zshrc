@@ -1,5 +1,6 @@
-# --- PATH ---
+# --- ENV VARS ---
 export PATH=~/.local/bin:$PATH
+export EDITOR=vim
 
 # --- KEYBOARD FIXES ---
 # Home, End, and Ctrl+Arrows
@@ -48,5 +49,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # --- ALIASES ---
-# alias vim=nvim
+if command -v nvim >/dev/null 2>&1; then
+    alias vim="nvim"
+fi
 alias ls="ls --color=auto"
