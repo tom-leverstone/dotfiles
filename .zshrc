@@ -27,6 +27,9 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # Colors in menu as ls -
 # jj dynamic completions
 source <(COMPLETE=zsh jj)
 
+# just completions
+source <(just --completions zsh)
+
 # --- HISTORY SETTINGS ---
 HISTSIZE=10000
 SAVEHIST=10000
