@@ -48,6 +48,9 @@ else
     cat bashrc-appendage >> ~/.bashrc
 fi
 
+# Set shell to zsh
+sudo chsh -s $(which zsh) $(whoami)
+
 # Install git-delta
 if ! command -v delta &> /dev/null; then
     wget https://github.com/dandavison/delta/releases/download/0.18.2/git-delta_0.18.2_amd64.deb
@@ -89,3 +92,7 @@ if ! command -v jj &> /dev/null; then
     tar -xvf jj-v0.36.0-x86_64-unknown-linux-musl.tar.gz
     sudo mv jj /usr/local/bin/
 fi
+
+# Install starship prompt
+# -s -- -y to pass -y to the script for non-interactive use
+curl -sS https://starship.rs/install.sh | sh -s -- -y
