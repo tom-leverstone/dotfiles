@@ -42,6 +42,8 @@ stow_dotfiles() {
 
 configure_zsh() {
     sudo chsh -s $(which zsh) $(whoami)
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
 }
 
 install_tools() {
