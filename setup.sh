@@ -10,7 +10,6 @@ EXCLUDE_LIST=(
     ".git"
     "README.md"
     "setup.sh"
-    "bashrc-appendage"
 )
 
 # Copy dotfiles to home directory
@@ -34,19 +33,6 @@ for item in .*; do
         cp -r "$SCRIPT_DIR/$item" "$HOME/"
     fi
 done
-
-# Append custom changes to .bashrc
-# Get the byte size of the source file
-
-# 1. Extract the last $size bytes of ~/.bashrc
-# 2. Check if ~/.bashrc exists (to avoid errors with tail)
-# 3. Compare those bytes (-) against bashrc-appendage
-size=$(wc -c < bashrc-appendage)
-if [ -f ~/.bashrc ] && tail -c "$size" ~/.bashrc | cmp -s - bashrc-appendage; then
-    echo ".bashrc already up to date. Skipping."
-else
-    cat bashrc-appendage >> ~/.bashrc
-fi
 
 # Set shell to zsh
 sudo chsh -s $(which zsh) $(whoami)
