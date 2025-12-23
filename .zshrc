@@ -12,6 +12,10 @@ bindkey "\e[1;5D" backward-word
 bindkey "^[[3~"  delete-char
 bindkey "^?"      backward-delete-char
 
+# --- MISE ---
+# This needs to happen before any calls to tools installed w/ mise
+eval "$(mise activate zsh)"
+
 # --- COMPLETION SYSTEM ---
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'     # Case-insensitive
@@ -46,9 +50,6 @@ fi
 
 # --- STARSHIP PROMPT ---
 eval "$(starship init zsh)"
-
-# --- MISE ---
-eval "$(mise activate zsh)"
 
 # --- PLUGINS ---
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

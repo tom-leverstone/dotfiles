@@ -2,6 +2,6 @@
 delta = "latest"
 jj = "latest"
 node = "lts"
-npm:@anthropic-ai/claude-code = "latest"
+"npm:@anthropic-ai/claude-code" = "latest"
 starship = "latest"
 uv = "latest"
