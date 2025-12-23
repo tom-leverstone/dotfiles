@@ -1,6 +1,0 @@
-model = "gpt-5-codex"
-[projects."/workspaces/obsidian"]
-trust_level = "trusted"
-
-[mcp_servers.playwright]
-command = "mcp-server-playwright"

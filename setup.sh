@@ -44,16 +44,6 @@ if ! command -v delta &> /dev/null; then
     rm git-delta_0.18.2_amd64.deb
 fi
 
-# Install codex
-if ! command -v codex &> /dev/null; then
-    npm install -g @openai/codex
-fi
-
-# Install playwright-mcp
-if ! npm list -g @playwright/mcp &> /dev/null; then
-    npm install -g @playwright/mcp@latest
-fi
-
 # Install Claude Code
 if ! command -v claude &> /dev/null; then
     npm install -g @anthropic-ai/claude-code
