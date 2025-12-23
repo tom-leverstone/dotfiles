@@ -1,4 +1,5 @@
 [tools]
+"aqua:casey/just" = "latest"
 delta = "latest"
 jj = "latest"
 node = "lts"

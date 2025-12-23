@@ -47,7 +47,7 @@ configure_zsh() {
 }
 
 install_tools() {
-    mise install
+    mise install --yes
 
     # For tools that relies on mise
     uv tool install llm
