@@ -37,7 +37,13 @@ install_dependencies() {
 }
 
 stow_dotfiles() {
-    stow --target="$HOME" --ignore='.git' --ignore='README.md' --ignore='setup.sh' .
+    stow --target="$HOME" \
+        --ignore='.git' \
+        --ignore='.gitmodules' \
+        --ignore='.jj' \
+        --ignore='README.md' \
+        --ignore='setup.sh' \
+        .
 }
 
 update_submodules() {

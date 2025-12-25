@@ -1,8 +1,6 @@
 [tools]
-"aqua:casey/just" = "latest"
 delta = "latest"
 jj = "latest"
-node = "lts"
-"npm:@anthropic-ai/claude-code" = "latest"
+node = "latest"
 starship = "latest"
 uv = "latest"
