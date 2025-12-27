@@ -11,9 +11,6 @@ bindkey "\e[1;5D" backward-word
 # Backspace/Delete fixes
 bindkey "^[[3~"  delete-char
 bindkey "^?"      backward-delete-char
-# History search
-bindkey "^R"      history-incremental-search-backward
-bindkey "^S"      history-incremental-search-forward
 
 # --- MISE ---
 # This needs to happen before any calls to tools installed w/ mise
@@ -30,6 +27,9 @@ if [[ -x /usr/bin/dircolors ]]; then
 fi
 
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # Colors in menu as ls --color
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 # jj dynamic completions
 source <(COMPLETE=zsh jj)

@@ -1,5 +1,6 @@
 [tools]
 delta = "latest"
+fzf = "latest"
 jj = "latest"
 node = "latest"
 starship = "latest"
