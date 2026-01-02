@@ -37,13 +37,21 @@ install_dependencies() {
 }
 
 stow_dotfiles() {
-    stow --target="$HOME" --ignore='.git' --ignore='README.md' --ignore='setup.sh' .
+    stow --target="$HOME" \
+        --ignore='.git' \
+        --ignore='.gitmodules' \
+        --ignore='.jj' \
+        --ignore='README.md' \
+        --ignore='setup.sh' \
+        .
+}
+
+update_submodules() {
+    git submodule update --init --recursive
 }
 
 configure_zsh() {
-    sudo chsh -s $(which zsh) $(whoami)
-    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+    chsh -s $(which zsh) $(whoami)
 }
 
 install_tools() {
@@ -56,6 +64,9 @@ install_tools() {
 
 echo "Installing dependencies..."
 install_dependencies
+
+echo "Updating submodules..."
+update_submodules
 
 echo "Stowing dotfiles..."
 stow_dotfiles

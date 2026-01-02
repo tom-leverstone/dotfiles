@@ -28,11 +28,16 @@ fi
 
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # Colors in menu as ls --color
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 # jj dynamic completions
 source <(COMPLETE=zsh jj)
 
 # just completions
-source <(just --completions zsh)
+if command -v just >/dev/null 2>&1; then
+    source <(just --completions zsh)
+fi
 
 # --- HISTORY SETTINGS ---
 HISTSIZE=10000
