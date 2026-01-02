@@ -47,7 +47,6 @@ stow_dotfiles() {
     stow --target="$HOME" \
         --ignore='.git' \
         --ignore='.gitmodules' \
-        --ignore='.jj' \
         --ignore='README.md' \
         --ignore='setup.sh' \
         .
@@ -58,7 +57,7 @@ update_submodules() {
 }
 
 configure_zsh() {
-    chsh -s $(which zsh) $(whoami)
+    sudo chsh -s $(which zsh) $(whoami)
 }
 
 install_tools() {
