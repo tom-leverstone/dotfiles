@@ -36,6 +36,13 @@ install_dependencies() {
     esac
 }
 
+backup_existing_zshrc() {
+    if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
+        echo "Found existing .zshrc, backing up to .zshrc-backup-before-toms-dotfile"
+        mv "$HOME/.zshrc" "$HOME/.zshrc-backup-before-toms-dotfile"
+    fi
+}
+
 stow_dotfiles() {
     stow --target="$HOME" \
         --ignore='.git' \
@@ -67,6 +74,9 @@ install_dependencies
 
 echo "Updating submodules..."
 update_submodules
+
+echo "Backing up existing .zshrc if present..."
+backup_existing_zshrc
 
 echo "Stowing dotfiles..."
 stow_dotfiles
