@@ -5,6 +5,7 @@ ZSH_THEME="robbyrussell"
 # Plugins
 plugins=(
     git
+    ssh-agent
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -29,13 +30,6 @@ source <(COMPLETE=zsh jj)
 # just completions
 if command -v just >/dev/null 2>&1; then
     source <(just --completions zsh)
-fi
-
-# --- SSH AGENT ---
-# TODO change to oh-my-zsh plugin
-# Requires: sudo pacman -S keychain
-if [[ -x /usr/bin/keychain ]]; then
-    eval $(keychain --eval --quiet id_rsa)
 fi
 
 # --- ALIASES ---
