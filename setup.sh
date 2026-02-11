@@ -53,6 +53,15 @@ update_submodules() {
     git submodule update --init --recursive
 }
 
+install_oh_my_zsh() {
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+        echo "Installing oh-my-zsh..."
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    else
+        echo "oh-my-zsh already installed"
+    fi
+}
+
 configure_zsh() {
     sudo chsh -s $(which zsh) $(whoami)
 }
@@ -67,6 +76,9 @@ install_dependencies
 
 echo "Updating submodules..."
 update_submodules
+
+echo "Installing oh-my-zsh and plugins..."
+install_oh_my_zsh
 
 echo "Stowing dotfiles..."
 stow_dotfiles

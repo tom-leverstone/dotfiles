@@ -1,3 +1,16 @@
+# --- OH-MY-ZSH ---
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+
+# Plugins
+plugins=(
+    git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
 # --- ENV VARS ---
 export PATH=~/.local/bin:~/bin:$PATH
 export EDITOR=vim
@@ -52,13 +65,6 @@ setopt HIST_REDUCE_BLANKS     # Clean up whitespace
 if [[ -x /usr/bin/keychain ]]; then
     eval $(keychain --eval --quiet id_rsa)
 fi
-
-# --- STARSHIP PROMPT ---
-eval "$(starship init zsh)"
-
-# --- PLUGINS ---
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # --- ALIASES ---
 if command -v nvim >/dev/null 2>&1; then
