@@ -1,5 +1,5 @@
 # --- ENV VARS ---
-export PATH=~/.local/bin:$PATH
+export PATH=~/.local/bin:~/bin:$PATH
 export EDITOR=vim
 
 # --- KEYBOARD FIXES ---
