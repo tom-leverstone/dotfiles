@@ -37,10 +37,19 @@ install_dependencies() {
 }
 
 stow_dotfiles() {
-    if [ -f "$HOME/.zshrc" ]; then
-        echo "Found existing .zshrc, backing up to .zshrc-backup-before-toms-dotfile"
-        mv "$HOME/.zshrc" "$HOME/.zshrc-backup-before-toms-dotfile"
-    fi
+    # Files to check for conflicts
+    FILES_TO_BACKUP=(".zshrc" ".gitconfig")
+
+    for file in "${FILES_TO_BACKUP[@]}"; do
+        TARGET_FILE="$HOME/$file"
+        
+        # If the file exists (-e) and is NOT a symlink (! -L), back it up
+        if [ -e "$TARGET_FILE" ] && [ ! -L "$TARGET_FILE" ]; then
+            echo "Backing up existing $TARGET_FILE to $TARGET_FILE.backup..."
+            mv "$TARGET_FILE" "$TARGET_FILE.backup"
+        fi
+    done
+    
     stow --target="$HOME" \
         --ignore='.git' \
         --ignore='.gitmodules' \
