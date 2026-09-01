@@ -26,7 +26,7 @@ install_dependencies() {
             ;;
         ubuntu)
             sudo apt update
-            sudo apt install -y stow zsh
+            sudo apt install -y stow zsh ncurses-bin
             ;;
         *)
             echo "Unsupported OS"
@@ -59,6 +59,11 @@ stow_dotfiles() {
         .
 }
 
+install_ghostty_terminfo() {
+    mkdir -p "$HOME/.terminfo"
+    tic -x -o "$HOME/.terminfo" terminfo/xterm-ghostty.src
+}
+
 update_submodules() {
     git submodule update --init --recursive
 }
@@ -83,6 +88,9 @@ install_tools() {
 
 echo "Installing dependencies..."
 install_dependencies
+
+echo "Installing Ghostty terminfo..."
+install_ghostty_terminfo
 
 echo "Updating submodules..."
 update_submodules
