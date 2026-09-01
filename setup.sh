@@ -19,21 +19,22 @@ install_dependencies() {
 
     case $os in
         mac)
-            brew install mise stow zsh
+            brew install stow zsh
             ;;
         arch)
-            sudo pacman -S --noconfirm mise stow zsh
+            sudo pacman -S --noconfirm stow zsh
             ;;
         ubuntu)
             sudo apt update
             sudo apt install -y stow zsh
-            curl https://mise.run | sh
             ;;
         *)
             echo "Unsupported OS"
             exit 1
             ;;
     esac
+
+    curl https://mise.run | sh
 }
 
 stow_dotfiles() {
