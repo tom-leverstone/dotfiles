@@ -84,6 +84,7 @@ configure_zsh() {
 install_tools() {
     mise trust
     mise install --yes
+    (cd "$HOME" && crit install pi --force)
 }
 
 echo "Installing dependencies..."
