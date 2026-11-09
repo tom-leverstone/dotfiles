@@ -16,6 +16,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH=~/.local/bin:~/bin:$PATH
 export EDITOR=vim
 
+# Pull Ona secrets if within an Ona environment
+[ -f /etc/profile.d/ona-secrets.sh ] && . /etc/profile.d/ona-secrets.sh
+
 # --- MISE ---
 # This needs to happen before any calls to tools installed w/ mise
 eval "$(mise activate zsh)"
