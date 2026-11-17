@@ -2,6 +2,8 @@
 
 set -e
 
+mkdir -p -m 700 "$HOME/.ssh"
+
 detect_os() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         echo "mac"
