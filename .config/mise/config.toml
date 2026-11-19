@@ -2,7 +2,6 @@
 delta = "latest"
 fx = "latest"
 fzf = "latest"
-"github:tomasz-tomczyk/crit" = "latest"
 herdr = "latest"
 jj = "latest"
 pi = "latest"
