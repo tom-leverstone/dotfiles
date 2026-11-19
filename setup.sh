@@ -91,6 +91,8 @@ setup_persistent_auth() (
 
     # Add one mapping per CLI; keep non-secret configuration local.
     link_auth "${PI_CODING_AGENT_DIR:-$HOME/.pi/agent}/auth.json" "pi/auth.json"
+    link_auth "${XDG_CONFIG_HOME:-$HOME/.config}/acli/jira_config.yaml" "acli/jira_config.yaml"
+    link_auth "${XDG_CONFIG_HOME:-$HOME/.config}/slack-vanta/token.json" "slack-vanta/token.json"
 )
 
 install_ghostty_terminfo() {
