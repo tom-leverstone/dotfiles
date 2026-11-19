@@ -19,6 +19,9 @@ export EDITOR=vim
 # Pull Ona secrets if within an Ona environment
 [ -f /etc/profile.d/ona-secrets.sh ] && . /etc/profile.d/ona-secrets.sh
 
+# --- PERSISTENT CLI CREDENTIALS ---
+bash "$HOME/dotfiles/setup-persistent-auth.sh"
+
 # --- MISE ---
 # This needs to happen before any calls to tools installed w/ mise
 eval "$(mise activate zsh)"
