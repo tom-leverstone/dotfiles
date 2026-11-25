@@ -20,7 +20,7 @@ export EDITOR=vim
 [ -f /etc/profile.d/ona-secrets.sh ] && . /etc/profile.d/ona-secrets.sh
 
 # --- PERSISTENT CLI CREDENTIALS ---
-bash "$HOME/dotfiles/setup-persistent-auth.sh"
+bash "${${(%):-%x}:A:h}/setup-persistent-auth.sh"
 
 # --- MISE ---
 # This needs to happen before any calls to tools installed w/ mise
